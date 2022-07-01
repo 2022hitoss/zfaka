@@ -36,7 +36,9 @@
 					<!-- 第一行 -->
 					<div class="row">
 						<div class="price"><b>￥{{ item.price}}</b></div>
+						<?php if(isset($config['salesswitch']) AND $config['salesswitch']>0):?>
 						<div class="kucun">{{ item.qty_sell}}人付款</div>
+						<?php endif;?>
 					</div>
 					
 					<div class="title">
