@@ -35,6 +35,15 @@
         <span class="layui-badge layui-bg-gray">不限量</span>
     {{# } }}
 </script>
+
+<script type="text/html" id="qty_sell">
+<?php if(isset($config['salesswitch']) AND $config['salesswitch']>0):?>
+    {{d.qty_sell}}
+<?php else:?>
+    <span class="layui-badge layui-bg-gray">隐藏</span>
+<?php endif;?>
+</script>
+
 <script type="text/html" id="opt">
 	{{# if(d.stockcontrol >0 && d.qty=="0"){ }}
 	<a class="layui-btn layui-btn-xs layui-btn-disabled" href="javascript:;">购买</a>
