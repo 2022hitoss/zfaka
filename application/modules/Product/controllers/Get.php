@@ -67,6 +67,10 @@ class GetController extends ProductBasicController
 							if($p['qty_switch']>0){
 								$items[$k]['qty'] = $p['qty_virtual'];
 							}
+							//对销量做特殊处理2022.06.28
+							if(isset($this->config['salesswitch']) AND $this->config['salesswitch']<1){
+							    $items[$k]['qty_sell'] = -1;
+							}
 						}
 						$data = array('code'=>0,'count'=>$total,'data'=>$items,'msg'=>'有数据');
 					}
@@ -101,6 +105,10 @@ class GetController extends ProductBasicController
 							}
 							if($p['qty_switch']>0){
 								$items[$k]['qty'] = $p['qty_virtual'];
+							}
+							//对销量做特殊处理2022.06.28
+							if(isset($this->config['salesswitch']) AND $this->config['salesswitch']<1){
+							    $items[$k]['qty_sell'] = -1;
 							}
 						}
 						$data = array('code'=>0,'count'=>$total,'data'=>$items,'msg'=>'有数据');
